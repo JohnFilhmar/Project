@@ -1,0 +1,163 @@
+CRITICAL - 2025-06-07 10:17:19 --> ErrorException: Undefined variable $campaigns
+[Method: GET, Route: admin]
+in APPPATH\Views\admin\campaigns.php on line 60.
+ 1 APPPATH\Views\admin\campaigns.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $campaigns', 'C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\campaigns.php', 60)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\campaigns.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns', [], true)
+ 5 APPPATH\Views\admin\index.php(16): view('admin/campaigns')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\index.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/index', [], true)
+ 9 APPPATH\Controllers\Admin.php(12): view('admin/index')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 10:36:15 --> CodeIgniter\Exceptions\RuntimeException: View themes, no current section.
+[Method: GET, Route: admin]
+in SYSTEMPATH\View\View.php on line 430.
+ 1 APPPATH\Views\admin\campaigns.php(26): CodeIgniter\View\View->endSection()
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\campaigns.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns', [], true)
+ 5 APPPATH\Controllers\Admin.php(12): view('admin/campaigns')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 10:40:41 --> ParseError: syntax error, unexpected token "echo"
+[Method: GET, Route: admin/campaigns]
+in APPPATH\Views\admin\campaigns.php on line 1.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns', [], true)
+ 3 APPPATH\Controllers\Admin.php(12): view('admin/campaigns')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->campaigns()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+DEBUG - 2025-06-07 11:37:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-07 11:50:20 --> CodeIgniter\Honeypot\Exceptions\HoneypotException: Honeypot.noTemplate
+[Method: GET, Route: admin/campaigns]
+in SYSTEMPATH\Honeypot\Honeypot.php on line 52.
+ 1 SYSTEMPATH\Honeypot\Honeypot.php(52): CodeIgniter\Honeypot\Exceptions\HoneypotException::forNoTemplate()
+ 2 SYSTEMPATH\Config\Services.php(330): CodeIgniter\Honeypot\Honeypot->__construct(Object(Config\Honeypot))
+ 3 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::honeypot(Object(Config\Honeypot), false)
+ 4 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('honeypot', [...])
+ 5 SYSTEMPATH\Config\Services.php(325): CodeIgniter\Config\BaseService::getSharedInstance('honeypot', null)
+ 6 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::honeypot()
+ 7 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('honeypot', [])
+ 8 SYSTEMPATH\Common.php(1000): CodeIgniter\Config\BaseService::get('honeypot')
+ 9 SYSTEMPATH\Filters\Honeypot.php(42): service('honeypot')
+10 SYSTEMPATH\Filters\Filters.php(241): CodeIgniter\Filters\Honeypot->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+11 SYSTEMPATH\Filters\Filters.php(221): CodeIgniter\Filters\Filters->runBefore([...])
+12 SYSTEMPATH\CodeIgniter.php(479): CodeIgniter\Filters\Filters->run('admin/campaigns', 'before')
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 11:54:06 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/campaigns/add_campaign_modal.php"
+[Method: GET, Route: admin/campaigns]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/campaigns/add_campaign_modal.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns/add_campaign_modal', [], true)
+ 3 APPPATH\Views\admin\campaigns.php(18): view('admin/campaigns/add_campaign_modal')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\campaigns.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns', [], true)
+ 7 APPPATH\Controllers\Admin.php(12): view('admin/campaigns')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->campaigns()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 11:54:17 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/campaigns/campaigns_add_modal.php"
+[Method: GET, Route: admin/campaigns]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/campaigns/campaigns_add_modal.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns/campaigns_add_modal', [], true)
+ 3 APPPATH\Views\admin\campaigns.php(18): view('admin/campaigns/campaigns_add_modal')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\campaigns.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/campaigns', [], true)
+ 7 APPPATH\Controllers\Admin.php(12): view('admin/campaigns')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->campaigns()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 14:45:51 --> ErrorException: Cannot redeclare function getGradientColor() (previously declared in C:\Users\olajo\Desktop\Project\app\Views\admin\results.php:109)
+[Method: GET, Route: admin/results]
+in APPPATH\Views\admin\results.php on line 109.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-06-07 14:47:12 --> ErrorException: Cannot redeclare function getGradientColor() (previously declared in C:\Users\olajo\Desktop\Project\app\Views\admin\results.php:109)
+[Method: GET, Route: admin/results]
+in APPPATH\Views\admin\results.php on line 109.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-06-07 14:47:13 --> ErrorException: Cannot redeclare function getGradientColor() (previously declared in C:\Users\olajo\Desktop\Project\app\Views\admin\results.php:109)
+[Method: GET, Route: admin/results]
+in APPPATH\Views\admin\results.php on line 109.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-06-07 14:52:30 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/candidates_add_modal.php"
+[Method: GET, Route: admin/candidates]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/candidates_add_modal.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/candidates_add_modal', [], true)
+ 3 APPPATH\Views\admin\candidates.php(19): view('admin/candidates_add_modal')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\candidates.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/candidates', [], true)
+ 7 APPPATH\Controllers\Admin.php(22): view('admin/candidates')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->candidates()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 14:52:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/candidates_add_modal.php"
+[Method: GET, Route: admin/candidates]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/candidates_add_modal.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/candidates_add_modal', [], true)
+ 3 APPPATH\Views\admin\candidates.php(18): view('admin/candidates_add_modal')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\candidates.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/candidates', [], true)
+ 7 APPPATH\Controllers\Admin.php(22): view('admin/candidates')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->candidates()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
+CRITICAL - 2025-06-07 15:19:08 --> ErrorException: Undefined variable $positions
+[Method: GET, Route: admin/candidates]
+in APPPATH\Views\admin\candidates.php on line 49.
+ 1 APPPATH\Views\admin\candidates.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $positions', 'C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\candidates.php', 49)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\Users\\olajo\\Desktop\\Project\\app\\Views\\admin\\candidates.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():221}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/candidates', [], true)
+ 5 APPPATH\Controllers\Admin.php(22): view('admin/candidates')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->candidates()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\olajo\\Desktop\\Project\\public\\index.php')
