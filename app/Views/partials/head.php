@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="E-Ballot System for secure and efficient online voting.">
 <meta name="keywords" content="e-ballot, voting, online, election, secure">
-<meta name="author" content="Your Organization Name">
-<script src="/js/main.js" defer></script>
+<meta name="author" content="A Web Portal Election System for Prince of Peace Colleges">
+<script type="module" src="/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
