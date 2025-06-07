@@ -9,6 +9,16 @@ class Admin extends BaseController
 {
     public function index()
     {
-        return view('admin/home');
+        return view('admin/campaigns');
+    }
+
+    public function results()
+    {
+        return view('admin/results');
+    }
+
+    public function candidates()
+    {
+        return view('admin/candidates');
     }
 }
