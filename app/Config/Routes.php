@@ -12,4 +12,7 @@ $routes->group('admin', function($routes) {
   $routes->get('student-lists', 'Admin::studentLists');
   $routes->post('campaigns/add', 'Admin::addCampaign');
 });
-$routes->get('/login', 'Home::login');
+$routes->group('/', function($routes) {
+  $routes->get('/', 'Home::index');
+  $routes->get('login', 'Home::login');
+});
