@@ -35,7 +35,6 @@ export function handleProfile() {
     closeDialog();
   }
 }
-
 window.handleProfile = handleProfile;
 
 const mobileMenu = document.getElementById("mobileMenu");
@@ -133,5 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
     pagination: {
       el: ".swiper-pagination",
     },
+  });
+});
+
+$(document).ready(function () {
+  $("#studentsTable").DataTable({
+    responsive: true,
+    language: {
+      search: "_INPUT_",
+      searchPlaceholder: "Search students...",
+    },
+    pageLength: 10,
   });
 });
