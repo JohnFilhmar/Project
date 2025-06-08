@@ -68,7 +68,7 @@
         <h2 class="text-lg font-semibold text-gray-800 mb-1">User Name</h2>
         <span class="text-xs text-gray-500 mb-4">Admin</span>
         <div class="flex flex-col w-full gap-2">
-          <a href="/profile" class="w-full text-center py-2 px-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">View Profile</a>
+          <a href="/admin/profile" class="w-full text-center py-2 px-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">View Profile</a>
           <a href="/logout" class="w-full text-center py-2 px-4 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition">Logout</a>
         </div>
       </div>
