@@ -8,7 +8,7 @@
     'class' => 'bg-white rounded-lg p-6 flex flex-col gap-4',
     'enctype' => 'multipart/form-data'
   ]);
-  echo form_label('Add New campaign', 'title', ['class' => 'text-2xl font-bold text-center mb-4 border-b-2 border-green-500']);
+  echo form_label('Add New Campaign', 'title', ['class' => 'text-2xl font-bold text-center mb-4 border-b-2 border-green-500']);
   echo form_input([
     'name' => 'title',
     'id' => 'title',
