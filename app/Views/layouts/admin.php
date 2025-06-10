@@ -1,12 +1,4 @@
-<?php
-$url = $_SERVER['REQUEST_URI'];
-function active_link($pattern, $url)
-{
-  return strpos($url, $pattern) !== false
-    ? 'bg-white text-green-700'
-    : '';
-}
-?>
+<?= helper('active_link_helper') ?>
 <!DOCTYPE html>
 <html lang="en">
 
