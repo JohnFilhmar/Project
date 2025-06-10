@@ -4,12 +4,44 @@
       <img src="/logo.jpg" alt="E-Ballot Logo" class="size-10 md:size-16 lg:size-20 inline-block mr-2">
       <p class="text-lg md:text-xl text-nowrap font-black">E-Ballot System</p>
     </a>
+    <?php $url = $_SERVER['REQUEST_URI']; ?>
     <nav class="ml-6 hidden md:block">
       <ul class="flex space-x-4">
-        <li><a href="/admin" class="hover:underline font-bold">Campaigns</a></li>
-        <li><a href="/admin/results" class="hover:underline font-bold">Results</a></li>
-        <li><a href="/admin/candidates" class="hover:underline font-bold">Candidates</a></li>
-        <li><a href="/admin/student-lists" class="hover:underline font-bold">Student Lists</a></li>
+        <li>
+          <a href="/admin/campaigns" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/campaigns', $url); ?>">
+            Campaigns
+          </a>
+        </li>
+        <li>
+          <a href="/admin/results" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/results', $url); ?>">
+            Results
+          </a>
+        </li>
+        <li>
+          <a href="/admin/candidates" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/candidates', $url); ?>">
+            Candidates
+          </a>
+        </li>
+        <li>
+          <a href="/admin/ballots" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/ballots', $url); ?>">
+            Ballots
+          </a>
+        </li>
+        <li>
+          <a href="/admin/campaign_lists" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/campaign_lists', $url); ?>">
+            Campaign Lists
+          </a>
+        </li>
+        <li>
+          <a href="/admin/candidate_lists" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/candidate_lists', $url); ?>">
+            Candidate Lists
+          </a>
+        </li>
+        <li>
+          <a href="/admin/student-lists" class="hover:underline font-bold px-2 py-1 rounded-md <?= active_link('/student-lists', $url); ?>">
+            Student Lists
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
