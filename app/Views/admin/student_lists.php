@@ -4,24 +4,24 @@
 
 <p class="text-2xl md:text-3xl lg:text-4xl font-extrabold mt-8 md:mt-9 lg:mt-10 mb-5">Registered Student Lists</p>
 <p class="text-base md:text-xl lg:text-2xl font-semibold">Manage student lists for the upcoming elections.</p>
-<div class="mt-6 self-justify-end flex justify-between items-center gap-2 self-end">
+<div class="mt-6 self-justify-end flex flex-col md:flex-row justify-between items-end gap-2 self-end mb-6 text-sm md:text-base lg:text-lg">
 
   <?php helper('form'); ?>
-  <form method="get" class="flex gap-2 items-center mb-0">
+  <form method="get" class="flex flex-col md:flex-row gap-2 items-end mb-0">
     <?= form_dropdown('year_level', ['' => 'All Year Levels'] + $yearLevels, $selectedYearLevel ?? '', ['class' => 'border rounded px-2 py-1']) ?>
     <?= form_dropdown('course', ['' => 'All Courses'] + $courses, $selectedCourse ?? '', ['class' => 'border rounded px-2 py-1']) ?>
     <?= form_dropdown('organization', ['' => 'All Organizations'] + $organizations, $selectedOrganization ?? '', ['class' => 'border rounded px-2 py-1']) ?>
     <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-xs font-bold">Filter</button>
   </form>
 
-  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out mb-6"
+  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out"
     onclick="document.getElementById('addStudentModal').showModal();">
     <p>Add New Student</p>
   </button>
 
   <?= view('admin/student_lists_form') ?>
   
-  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out mb-6"
+  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out"
     onclick="if(!confirm('Are you sure you want to deactivate all students? This action cannot be undone.')) return false;">
     <p>Deactivate Students</p>  
   </button>
