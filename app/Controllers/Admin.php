@@ -7,9 +7,114 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Admin extends BaseController
 {
-    public function index()
+    public function campaigns()
     {
-        return view('admin/campaigns');
+        $campaigns = [
+            [
+                'id' => 1,
+                'title' => 'Tech for Good',
+                'details' => 'Empowering students to use technology for social impact and community development.',
+                'image' => 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Innovators United',
+                'date_added' => '2024-01-05',
+            ],
+            [
+                'id' => 2,
+                'title' => 'Green Campus Initiative',
+                'details' => 'Promoting sustainability and environmental awareness across the campus.',
+                'image' => 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Eco Warriors',
+                'date_added' => '2024-02-10',
+            ],
+            [
+                'id' => 3,
+                'title' => 'Community Outreach',
+                'details' => 'Engaging students in outreach programs to help local communities.',
+                'image' => '',
+                'partylist' => 'Helping Hands',
+                'date_added' => '2024-03-15',
+            ],
+            [
+                'id' => 4,
+                'title' => 'Digital Literacy Drive',
+                'details' => 'Workshops and seminars to improve digital skills among students.',
+                'image' => 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Tech Savvy',
+                'date_added' => '2024-04-01',
+            ],
+            [
+                'id' => 5,
+                'title' => 'Mental Health Awareness',
+                'details' => 'Campaign to support mental health and well-being for all students.',
+                'image' => 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Mind Matters',
+                'date_added' => '2024-04-20',
+            ],
+            [
+                'id' => 6,
+                'title' => 'Sports for All',
+                'details' => 'Encouraging participation in sports and physical activities.',
+                'image' => 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Active Youth',
+                'date_added' => '2024-05-05',
+            ],
+        ];
+        return view('admin/campaigns', ['campaigns' => $campaigns]);
+    }
+
+    public function campaign_lists()
+    {
+        $campaigns = [
+            [
+                'id' => 1,
+                'title' => 'Tech for Good',
+                'details' => 'Empowering students to use technology for social impact and community development.',
+                'image' => 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Innovators United',
+                'date_added' => '2024-01-05',
+            ],
+            [
+                'id' => 2,
+                'title' => 'Green Campus Initiative',
+                'details' => 'Promoting sustainability and environmental awareness across the campus.',
+                'image' => 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Eco Warriors',
+                'date_added' => '2024-02-10',
+            ],
+            [
+                'id' => 3,
+                'title' => 'Community Outreach',
+                'details' => 'Engaging students in outreach programs to help local communities.',
+                'image' => '',
+                'partylist' => 'Helping Hands',
+                'date_added' => '2024-03-15',
+            ],
+            [
+                'id' => 4,
+                'title' => 'Digital Literacy Drive',
+                'details' => 'Workshops and seminars to improve digital skills among students.',
+                'image' => 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Tech Savvy',
+                'date_added' => '2024-04-01',
+            ],
+            [
+                'id' => 5,
+                'title' => 'Mental Health Awareness',
+                'details' => 'Campaign to support mental health and well-being for all students.',
+                'image' => 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Mind Matters',
+                'date_added' => '2024-04-20',
+            ],
+            [
+                'id' => 6,
+                'title' => 'Sports for All',
+                'details' => 'Encouraging participation in sports and physical activities.',
+                'image' => 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80',
+                'partylist' => 'Active Youth',
+                'date_added' => '2024-05-05',
+            ],
+        ];
+        return view('admin/campaign_lists', ['campaigns' => $campaigns]);
     }
 
     public function results()
@@ -19,7 +124,184 @@ class Admin extends BaseController
 
     public function candidates()
     {
-        return view('admin/candidates');
+        $positions = [
+            'Governor' => [
+                ['name' => 'Alice Johnson', 'votes' => 120, 'percent' => 60],
+                ['name' => 'Bob Smith', 'votes' => 95, 'percent' => 40],
+            ],
+            'Vice Governor Internal' => [
+                ['name' => 'Carol Lee', 'votes' => 110, 'percent' => 55],
+                ['name' => 'David Kim', 'votes' => 90, 'percent' => 45],
+            ],
+            'Vice Governor External' => [
+                ['name' => 'Eve Adams', 'votes' => 130, 'percent' => 65],
+                ['name' => 'Frank Wright', 'votes' => 70, 'percent' => 35],
+            ],
+            'Secretary' => [
+                ['name' => 'Grace Lin', 'votes' => 140, 'percent' => 70],
+                ['name' => 'Helen Cruz', 'votes' => 60, 'percent' => 30],
+            ],
+            'Treasurer' => [
+                ['name' => 'Ian Torres', 'votes' => 125, 'percent' => 62],
+                ['name' => 'Jake Evans', 'votes' => 75, 'percent' => 38],
+            ],
+            'Auditor 1' => [
+                ['name' => 'Karen Young', 'votes' => 100, 'percent' => 50],
+                ['name' => 'Leo Park', 'votes' => 100, 'percent' => 50],
+            ],
+            'Auditor 2' => [
+                ['name' => 'Mona Diaz', 'votes' => 110, 'percent' => 55],
+                ['name' => 'Nate Reed', 'votes' => 90, 'percent' => 45],
+            ],
+            'Peace Officer' => [
+                ['name' => 'Olivia Fox', 'votes' => 135, 'percent' => 67],
+                ['name' => 'Paul Grant', 'votes' => 65, 'percent' => 33],
+            ],
+            'Muse' => [
+                ['name' => 'Quinn Lee', 'votes' => 120, 'percent' => 60],
+                ['name' => 'Rita Chan', 'votes' => 80, 'percent' => 40],
+            ],
+            'Escort' => [
+                ['name' => 'Sam Cruz', 'votes' => 140, 'percent' => 70],
+                ['name' => 'Tom Yu', 'votes' => 60, 'percent' => 30],
+            ],
+        ];
+        $candidateQuotes = [
+            'Alice Johnson' => 'Dedicated to progress and unity.',
+            'Bob Smith' => 'Committed to serving the people.',
+            'Carol Lee' => 'Passionate about student welfare.',
+            'David Kim' => 'Focused on inclusive leadership.',
+            'Eve Adams' => 'Driven by innovation and results.',
+            'Frank Wright' => 'Ready to make a difference.',
+            'Grace Lin' => 'Organized for your success.',
+            'Helen Cruz' => 'Your voice, your secretary.',
+            'Ian Torres' => 'Transparency and trust in finance.',
+            'Jake Evans' => 'Accountability at every step.',
+            'Karen Young' => 'Ensuring fairness for all.',
+            'Leo Park' => 'Integrity in every audit.',
+            'Mona Diaz' => 'Committed to honest reporting.',
+            'Nate Reed' => 'Your reliable auditor.',
+            'Olivia Fox' => 'Peace and order above all.',
+            'Paul Grant' => 'Safety is my priority.',
+            'Quinn Lee' => 'Inspiring creativity and joy.',
+            'Rita Chan' => 'Bringing grace to every event.',
+            'Sam Cruz' => 'Leading with confidence.',
+            'Tom Yu' => 'Supportive and dependable.',
+        ];
+        $candidatesList = [];
+        foreach ($positions as $position => $candidates) {
+            foreach ($candidates as $candidate) {
+                $name = $candidate['name'];
+                $candidatesList[] = [
+                    'name' => $name,
+                    'position' => $position,
+                    'image' => '/no-profile.png',
+                    'quote' => $candidateQuotes[$name] ?? '',
+                ];
+            }
+        }
+        return view('admin/candidates', ['candidatesList' => $candidatesList]);
+    }
+    public function candidate_lists()
+    {
+        $positions = [
+            'Governor' => [
+                ['name' => 'Alice Johnson', 'votes' => 120, 'percent' => 60],
+                ['name' => 'Bob Smith', 'votes' => 95, 'percent' => 40],
+            ],
+            'Vice Governor Internal' => [
+                ['name' => 'Carol Lee', 'votes' => 110, 'percent' => 55],
+                ['name' => 'David Kim', 'votes' => 90, 'percent' => 45],
+            ],
+            'Vice Governor External' => [
+                ['name' => 'Eve Adams', 'votes' => 130, 'percent' => 65],
+                ['name' => 'Frank Wright', 'votes' => 70, 'percent' => 35],
+            ],
+            'Secretary' => [
+                ['name' => 'Grace Lin', 'votes' => 140, 'percent' => 70],
+                ['name' => 'Helen Cruz', 'votes' => 60, 'percent' => 30],
+            ],
+            'Treasurer' => [
+                ['name' => 'Ian Torres', 'votes' => 125, 'percent' => 62],
+                ['name' => 'Jake Evans', 'votes' => 75, 'percent' => 38],
+            ],
+            'Auditor 1' => [
+                ['name' => 'Karen Young', 'votes' => 100, 'percent' => 50],
+                ['name' => 'Leo Park', 'votes' => 100, 'percent' => 50],
+            ],
+            'Auditor 2' => [
+                ['name' => 'Mona Diaz', 'votes' => 110, 'percent' => 55],
+                ['name' => 'Nate Reed', 'votes' => 90, 'percent' => 45],
+            ],
+            'Peace Officer' => [
+                ['name' => 'Olivia Fox', 'votes' => 135, 'percent' => 67],
+                ['name' => 'Paul Grant', 'votes' => 65, 'percent' => 33],
+            ],
+            'Muse' => [
+                ['name' => 'Quinn Lee', 'votes' => 120, 'percent' => 60],
+                ['name' => 'Rita Chan', 'votes' => 80, 'percent' => 40],
+            ],
+            'Escort' => [
+                ['name' => 'Sam Cruz', 'votes' => 140, 'percent' => 70],
+                ['name' => 'Tom Yu', 'votes' => 60, 'percent' => 30],
+            ],
+        ];
+        $candidateQuotes = [
+            'Alice Johnson' => 'Dedicated to progress and unity.',
+            'Bob Smith' => 'Committed to serving the people.',
+            'Carol Lee' => 'Passionate about student welfare.',
+            'David Kim' => 'Focused on inclusive leadership.',
+            'Eve Adams' => 'Driven by innovation and results.',
+            'Frank Wright' => 'Ready to make a difference.',
+            'Grace Lin' => 'Organized for your success.',
+            'Helen Cruz' => 'Your voice, your secretary.',
+            'Ian Torres' => 'Transparency and trust in finance.',
+            'Jake Evans' => 'Accountability at every step.',
+            'Karen Young' => 'Ensuring fairness for all.',
+            'Leo Park' => 'Integrity in every audit.',
+            'Mona Diaz' => 'Committed to honest reporting.',
+            'Nate Reed' => 'Your reliable auditor.',
+            'Olivia Fox' => 'Peace and order above all.',
+            'Paul Grant' => 'Safety is my priority.',
+            'Quinn Lee' => 'Inspiring creativity and joy.',
+            'Rita Chan' => 'Bringing grace to every event.',
+            'Sam Cruz' => 'Leading with confidence.',
+            'Tom Yu' => 'Supportive and dependable.',
+        ];
+        $candidatesList = [];
+        $id = 1;
+        foreach ($positions as $position => $candidates) {
+            foreach ($candidates as $candidate) {
+                $name = $candidate['name'];
+                $candidatesList[] = [
+                    'id' => $id++,
+                    'name' => $name,
+                    'position' => $position,
+                    'image' => '/no-profile.png',
+                    'quote' => $candidateQuotes[$name] ?? '',
+                ];
+            }
+        }
+        return view('admin/candidate_lists', ['candidatesList' => $candidatesList]);
+    }
+
+    public function ballots()
+    {
+        $ballots = [
+            [
+                'organization' => 'Acme Corp',
+                'created_at' => '2024-06-01 10:30:00'
+            ],
+            [
+                'organization' => 'Beta Group',
+                'created_at' => '2024-06-02 14:15:00'
+            ],
+            [
+                'organization' => 'Gamma LLC',
+                'created_at' => '2024-06-03 09:45:00'
+            ]
+        ];
+        return view('admin/ballots', ['ballots' => $ballots]);
     }
 
     public function studentLists()
