@@ -1,8 +1,19 @@
+<?php
+$url = $_SERVER['REQUEST_URI'];
+function active_link($pattern, $url)
+{
+  return strpos($url, $pattern) !== false
+    ? 'bg-white text-green-700'
+    : '';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <?= view('partials/head') ?>
 </head>
+
 <body>
   <div class="relative flex flex-col min-h-screen text-green-900">
     <?= view('partials/headers') ?>
@@ -14,4 +25,5 @@
     <?= view('partials/footer') ?>
   </div>
 </body>
+
 </html>

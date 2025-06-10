@@ -5,15 +5,6 @@
   <div class="mb-10 w-full border-b-2 border-green-200 text-center">
     <span class="text-2xl font-bold">Admin Panel</span>
   </div>
-  <?php
-  $url = $_SERVER['REQUEST_URI'];
-  function active_link($pattern, $url)
-  {
-    return strpos($url, $pattern) !== false
-      ? 'bg-white text-green-700'
-      : '';
-  }
-  ?>
   <nav class="flex flex-col gap-4 w-full px-10 border-b-2 border-green-200 pb-10">
     <a href="/admin/profile" class="flex items-center gap-2 px-4 py-2 rounded hover:bg-green-700 hover:text-white transition <?= active_link('/admin/profile', $url) && !active_link('/admin/profile/', $url) ? 'bg-white text-green-700' : '' ?>">
       <i class="fa fa-user"></i>
