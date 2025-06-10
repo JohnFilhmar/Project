@@ -134,37 +134,60 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 });
+
 $.fn.dataTable.ext.errMode = "none";
-$(document).ready(function () {
-  $("#studentsTable").DataTable({
-    responsive: true,
-    language: {
-      search: "_INPUT_",
-      searchPlaceholder: "Search students...",
-    },
-    pageLength: 10,
-  });
-});
+function styleDataTable(tableId, color = "green") {
+  const $filterInput = $(`#${tableId}_filter input`);
+  $filterInput
+    .addClass("form-input px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500")
+    .css({ width: "200px", marginLeft: "0.5em" });
+
+  $(`#${tableId}_paginate`)
+    .addClass("flex gap-2 items-center mt-4");
+  $(`#${tableId}_paginate .paginate_button`)
+    .addClass(`px-3 py-1 rounded-md border bg-${color}-100 text-${color}-700`)
+    .css({ margin: "0 2px" });
+  $(`#${tableId}_paginate .paginate_button.current`)
+    .removeClass(`bg-${color}-100`)
+    .addClass(`text-${color}-700 bg-${color}-200 border-${color}-500 hover:bg-${color}-700 hover:text-${color}-200 border-2 border-${color}-700`);
+
+  // Group length and filter controls
+  const $length = $(`#${tableId}_length`);
+  const $filter = $(`#${tableId}_filter`);
+  if ($length.parent(".dt-header-flex").length === 0) {
+    $length.add($filter).wrapAll('<div class="dt-header-flex flex justify-between items-center mb-4"></div>');
+  }
+
+  // Group info and pagination controls
+  const $info = $(`#${tableId}_info`);
+  const $paginate = $(`#${tableId}_paginate`);
+  if ($info.parent(".dt-footer-flex").length === 0) {
+    $info.add($paginate).wrapAll('<div class="dt-footer-flex flex justify-between items-center mt-2"></div>');
+  }
+}
 
 $(document).ready(function () {
-  $("#organizationTable").DataTable({
-    responsive: true,
-    language: {
-      search: "_INPUT_",
-      searchPlaceholder: "Search organization...",
-    },
-    pageLength: 10,
-  });
-});
+  const tables = [
+    { id: "studentsTable", placeholder: "Search students..." },
+    { id: "organizationTable", placeholder: "Search organization..." },
+    { id: "positionTable", placeholder: "Search positions..." },
+    { id: "candidatesTable", placeholder: "Search candidates..." },
+  ];
 
-$(document).ready(function () {
-  $("#positionTable").DataTable({
-    responsive: true,
-    language: {
-      search: "_INPUT_",
-      searchPlaceholder: "Search positions...",
-    },
-    pageLength: 10,
+  tables.forEach(({ id, color, placeholder }) => {
+    if ($(`#${id}`).length) {
+      $(`#${id}`).DataTable({
+        responsive: true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: placeholder,
+        },
+        pageLength: 10,
+        drawCallback: function () {
+          styleDataTable(id, color);
+        },
+      });
+    }
   });
 });
 
