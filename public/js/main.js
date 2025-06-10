@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 });
-
+$.fn.dataTable.ext.errMode = "none";
 $(document).ready(function () {
   $("#studentsTable").DataTable({
     responsive: true,
@@ -145,3 +145,71 @@ $(document).ready(function () {
     pageLength: 10,
   });
 });
+
+$(document).ready(function () {
+  $("#organizationTable").DataTable({
+    responsive: true,
+    language: {
+      search: "_INPUT_",
+      searchPlaceholder: "Search organization...",
+    },
+    pageLength: 10,
+  });
+});
+
+$(document).ready(function () {
+  $("#positionTable").DataTable({
+    responsive: true,
+    language: {
+      search: "_INPUT_",
+      searchPlaceholder: "Search positions...",
+    },
+    pageLength: 10,
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const notif = document.getElementById("notification");
+  if (notif) {
+    setTimeout(() => {
+      notif.classList.add("opacity-0");
+      setTimeout(() => notif.remove(), 300);
+    }, 5000);
+  }
+});
+
+(function () {
+  const sidebar = document.getElementById("adminSidebar");
+  const toggleBtn = document.getElementById("sidebarToggleBtn");
+  const icon = document.getElementById("sidebarToggleIcon");
+  let sidebarOpen = true;
+
+  function openSidebar() {
+    sidebar.classList.remove("sidebar-hidden");
+    sidebar.classList.add("sidebar-visible");
+    toggleBtn.classList.remove("sidebar-btn-hidden");
+    toggleBtn.classList.add("sidebar-btn-visible");
+    icon.setAttribute("d", "M15 19l-7-7 7-7"); // Left arrow
+    sidebarOpen = true;
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove("sidebar-visible");
+    sidebar.classList.add("sidebar-hidden");
+    toggleBtn.classList.remove("sidebar-btn-visible");
+    toggleBtn.classList.add("sidebar-btn-hidden");
+    icon.setAttribute("d", "M9 5l7 7-7 7"); // Right arrow
+    sidebarOpen = false;
+  }
+
+  toggleBtn.addEventListener("click", function () {
+    if (sidebarOpen) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  // Initialize
+  openSidebar();
+})();

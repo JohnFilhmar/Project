@@ -57,3 +57,28 @@ main {
 .tracking-in-expand {
 	animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
+
+.sidebar-transition {
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform, opacity;
+}
+.sidebar-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.sidebar-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+.sidebar-toggle-btn {
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), left 0.5s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform, left;
+}
+.sidebar-btn-visible {
+  left: 220px; /* Adjust to sidebar width + margin */
+}
+.sidebar-btn-hidden {
+  left: 0;
+}
