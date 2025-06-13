@@ -11,18 +11,26 @@
   <div class="mt-4 w-full max-w-7xl mx-auto">
     <div class="swiper candidates-swiper">
       <div class="swiper-wrapper">
-        <?php foreach ($candidatesList as $candidate): ?>
+        <?php if (empty($candidateLists)): ?>
           <div class="swiper-slide">
-            <div class="mx-auto max-w-lg rounded-lg overflow-hidden shadow-lg bg-white p-2">
-              <img class="w-full h-80 object-cover" src="<?= esc($candidate['image']) ?>" alt="Candidate Photo">
-              <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2"><?= esc($candidate['name']) ?></div>
-                <div class="text-sm text-gray-500 mb-1"><?= esc($candidate['position']) ?></div>
-                <p class="text-gray-700 text-base italic"><?= esc($candidate['quote']) ?></p>
-              </div>
+            <div class="mx-auto max-w-lg rounded-lg overflow-hidden shadow-lg bg-white p-8 flex items-center justify-center h-80">
+              <span class="text-gray-500 text-lg italic">No candidates yet.</span>
             </div>
           </div>
-        <?php endforeach; ?>
+        <?php else: ?>
+          <?php foreach ($candidateLists as $candidate): ?>
+            <div class="swiper-slide">
+              <div class="mx-auto max-w-lg rounded-lg overflow-hidden shadow-lg bg-white p-2">
+                <img class="w-full h-80 object-cover" src="<?= esc($candidate['image_url']) ?>" alt="Candidate Photo">
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2"><?= esc($candidate['full_name']) ?></div>
+                  <div class="text-sm text-gray-500 mb-1"><?= esc($candidate['position']) ?></div>
+                  <p class="text-gray-700 text-base italic"><?= esc($candidate['campaign_message']) ?></p>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </div>
       <div class="mt-10">
         <div class="swiper-pagination"></div>
