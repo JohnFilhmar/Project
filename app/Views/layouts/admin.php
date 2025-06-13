@@ -1,4 +1,4 @@
-<?= helper('active_link_helper') ?>
+<?= helper('active_link_helper'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +14,8 @@
         <?= $this->renderSection('content') ?>
       </div>
     </main>
-    <?= view('partials/footer') ?>
   </div>
+  <?= view('partials/footer') ?>
 </body>
 
 </html>
