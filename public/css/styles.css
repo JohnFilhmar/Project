@@ -26,8 +26,7 @@ body {
 
 main {
   button {
-    border: 2px solid rgb(144, 255, 144);
-    border-radius: 10px;
+    cursor: pointer;
   }
 }
 /* ----------------------------------------------
@@ -81,4 +80,26 @@ main {
 }
 .sidebar-btn-hidden {
   left: 0;
+}
+
+#votersDropdown {
+  transition-property: opacity, transform;
+}
+.opacity-0 {
+  opacity: 0; 
+}
+.opacity-100 {
+  opacity: 1;
+}
+.pointer-events-none {
+  pointer-events: none;
+}
+.pointer-events-auto {
+  pointer-events: auto;
+}
+.translate-y-0 {
+  transform: translateY(0);
+}
+.translate-y-minus-10 {
+  transform: translateY(-10px);
 }
