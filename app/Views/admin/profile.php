@@ -22,9 +22,9 @@
       <i class="fa fa-sign-out"></i>
       <span>Positions</span>
     </a>
-    <a href="/admin/profile/officers" class="flex items-center gap-2 px-4 py-2 rounded hover:bg-green-700 hover:text-white transition <?= active_link('/admin/profile/officers', $url) ? 'bg-white text-green-700' : '' ?>">
+    <a href="/admin/profile/users" class="flex items-center gap-2 px-4 py-2 rounded hover:bg-green-700 hover:text-white transition <?= active_link('/admin/profile/officers', $url) ? 'bg-white text-green-700' : '' ?>">
       <i class="fa fa-sign-out"></i>
-      <span>Officers</span>
+      <span>Users</span>
     </a>
   </nav>
 </aside>
@@ -42,13 +42,50 @@ if (strpos($url, 'admin/profile/election') !== false) {
   echo view('admin/profile_organization');
 } else if (strpos($url, 'admin/profile/position') !== false) {
   echo view('admin/profile_position');
-} else if (strpos($url, 'admin/profile/officers') !== false) {
-  echo view('admin/profile_officers');
+} else if (strpos($url, 'admin/profile/users') !== false) {
+  echo view('admin/profile_users');
 } else if (strpos($url, 'admin/profile') !== false) {
   echo view('admin/admin_profile');
 } else {
   echo view('admin/profile');
 }
 ?>
+<script>
+  (function() {
+    const sidebar = document.getElementById("adminSidebar");
+    const toggleBtn = document.getElementById("sidebarToggleBtn");
+    const icon = document.getElementById("sidebarToggleIcon");
+    let sidebarOpen = true;
+
+    function openSidebar() {
+      sidebar.classList.remove("sidebar-hidden");
+      sidebar.classList.add("sidebar-visible");
+      toggleBtn.classList.remove("sidebar-btn-hidden");
+      toggleBtn.classList.add("sidebar-btn-visible");
+      icon.setAttribute("d", "M15 19l-7-7 7-7"); // Left arrow
+      sidebarOpen = true;
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("sidebar-visible");
+      sidebar.classList.add("sidebar-hidden");
+      toggleBtn.classList.remove("sidebar-btn-visible");
+      toggleBtn.classList.add("sidebar-btn-hidden");
+      icon.setAttribute("d", "M9 5l7 7-7 7"); // Right arrow
+      sidebarOpen = false;
+    }
+
+    toggleBtn.addEventListener("click", function() {
+      if (sidebarOpen) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    // Initialize
+    openSidebar();
+  })();
+</script>
 
 <?= $this->endSection() ?>
