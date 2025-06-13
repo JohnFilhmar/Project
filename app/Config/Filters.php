@@ -27,6 +27,7 @@ class Filters extends BaseFilters
     public array $aliases = [
         'role' => \App\Filters\RoleFilter::class,
         'isloggedin' => \App\Filters\IsLoggedInFilter::class,
+        'isloggedout' => \App\Filters\IsLoggedOutFilter::class,
         'csrf'          => CSRF::class,
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
@@ -72,6 +73,7 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             'honeypot',
+            'isloggedout',
             // 'csrf',
             // 'invalidchars',
         ],
