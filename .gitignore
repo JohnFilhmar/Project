@@ -1,3 +1,6 @@
 .env
 **/writable
 # Ignore all files in the writable directory
+**/vendor
+# Ignore all files in the vendor directory
+**/composer.**
