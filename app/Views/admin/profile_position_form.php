@@ -3,15 +3,9 @@
 
   helper('form');
 
-  echo form_open('admin/add_position', ['id' => 'addPositionForm', 'class' => 'space-y-4 p-6']);
+  echo form_open('admin/profile/position/create_position/' . esc($selectedOrg) , ['id' => 'addPositionForm', 'class' => 'space-y-4 p-6']);
 
   echo form_label('Add a New Position', 'title', ['class' => 'text-2xl font-bold text-center mb-10 border-b-2 border-green-500 w-full']);
-  echo form_input([
-    'name' => 'title',
-    'id' => 'title',
-    'class' => 'hidden',
-    'required' => false
-  ]);
 
   echo '<div>';
   echo form_label('Position', 'position', ['class' => 'block text-sm font-medium']);
