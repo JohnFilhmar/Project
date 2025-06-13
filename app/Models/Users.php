@@ -7,12 +7,22 @@ use CodeIgniter\Model;
 class Users extends Model
 {
     protected $table            = 'users';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'user_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields = [
+        'email',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'image_url',
+        'organization',
+        'password',
+        'created_at',
+        'is_active'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
