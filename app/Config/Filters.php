@@ -25,6 +25,8 @@ class Filters extends BaseFilters
      * or [filter_name => [classname1, classname2, ...]]
      */
     public array $aliases = [
+        'role' => \App\Filters\RoleFilter::class,
+        'isloggedin' => \App\Filters\IsLoggedInFilter::class,
         'csrf'          => CSRF::class,
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
@@ -70,12 +72,12 @@ class Filters extends BaseFilters
     public array $globals = [
         'before' => [
             'honeypot',
-            'csrf',
-            'invalidchars',
+            // 'csrf',
+            // 'invalidchars',
         ],
         'after' => [
             'honeypot',
-            'secureheaders',
+            // 'secureheaders',
         ],
     ];
 
