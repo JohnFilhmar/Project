@@ -4,3 +4,7 @@
 **/vendor
 # Ignore all files in the vendor directory
 **/composer.**
+# Ignore all changes in the public asset folders
+**/public/users
+**/public/campaigns
+**/public/students
