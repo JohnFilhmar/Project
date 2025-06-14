@@ -31,6 +31,8 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
 
   $routes->group('profile', function ($routes) {
     $routes->get('', 'Admin::profile');
+    $routes->post('update_profile_image', 'Admin::update_profile_image');
+    $routes->post('update_profile', 'Admin::update_profile');
 
     $routes->group('organization', function ($routes) {
       $routes->get('', 'Organizations::organizations');
