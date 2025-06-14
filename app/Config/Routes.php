@@ -99,6 +99,7 @@ $routes->group('campaigns', ['filter' => 'role:admin,officer'], function ($route
   $routes->get('retrieve', 'Campaigns::retrieve_campaigns');
   $routes->post('update/(:num)', 'Campaigns::update_campaign/$1');
   $routes->post('delete/(:num)', 'Campaigns::delete_campaign/$1');
+  $routes->get('retrieve_partylist', 'Campaigns::retrieve_partylist');
 });
 
 // CANDIDATE ROUTES

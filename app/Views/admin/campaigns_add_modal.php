@@ -10,16 +10,17 @@
   echo form_label('Add New Campaign', 'title', ['id' => 'campaignFormTitle', 'class' => 'text-2xl font-bold text-center mb-4 border-b-2 border-green-500']);
 
   echo form_label('Partylist', 'partylist', ['class' => 'text-left font-semibold']);
-  echo form_input([
-    'name' => 'partylist',
-    'id' => 'partylist',
-    'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
-    'required' => true
-  ]);
+  ?>
+  <select name="partylist" id="partylist" class="mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105" required>
+    <option value="">Select a partylist</option>
+  </select>
+  <?php
   echo form_label('Campaign Name', 'campaign_name', ['class' => 'text-left font-semibold']);
   echo form_input([
     'name' => 'campaign_name',
     'id' => 'campaign_name',
+    'minLength' => 3,
+    'maxLength' => 255,
     'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
     'required' => true
   ]);
@@ -27,8 +28,10 @@
   echo form_textarea([
     'name' => 'description',
     'id' => 'description',
+    'minLength' => 3,
+    'maxLength' => 255,
     'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
-    'rows' => 3,
+    'rows' => 2,
     'required' => true
   ]);
   echo form_label('Image URL', 'image_url', ['class' => 'text-left font-semibold']);
@@ -36,6 +39,8 @@
     'name' => 'image_url',
     'id' => 'image_url',
     'type' => 'url',
+    'minLength' => 3,
+    'maxLength' => 255,
     'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
     'oninput' => "toggleImageInputs()"
   ]);
