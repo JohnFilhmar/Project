@@ -63,6 +63,8 @@
           'id' => 'password',
           'name' => 'password',
           'required' => true,
+          'minLength' => 6,
+          'maxLength' => 255,
           'autocomplete' => 'new-password',
           'class' => 'w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition pr-10',
           'placeholder' => 'Create a password'
@@ -83,6 +85,8 @@
           'id' => 'password_confirm',
           'name' => 'password_confirm',
           'required' => true,
+          'minLength' => 6,
+          'maxLength' => 255,
           'autocomplete' => 'new-password',
           'class' => 'w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition pr-10',
           'placeholder' => 'Confirm password'
@@ -105,10 +109,14 @@
       ]) ?>
     </div>
     <div>
-      <label for="organization" class="block text-sm font-medium text-green-700 mb-1 mt-3">Organization</label>
-      <select id="organization" name="organization" required class="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition">
-        <option value="">Select organization</option>
+      <label for="organization_id" class="block text-sm font-medium text-green-700 mb-1 mt-3">Organization:</label>
+      <select id="organization_id" name="organization_id" class="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" required>
+        <option value="">-- Select Organization --</option>
       </select>
+      <!-- <label for="organization" class="block text-sm font-medium text-green-700 mb-1 mt-3">Organization</label>
+      <select id="organization" name="organization" required class="">
+        <option value="">Select organization</option>
+      </select> -->
     </div>
     <div class="md:col-span-2 w-full mt-4">
       <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-lg shadow transition">Register Admin</button>
@@ -142,20 +150,20 @@
       }
     }
     // Fetch organizations and populate dropdown
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('/admin/profile/organization/retrieve_organizations')
-        .then(response => response.json())
-        .then(data => {
-          const orgSelect = document.getElementById('organization');
-          if (data.organizations && Array.isArray(data.organizations)) {
-            data.organizations.forEach(org => {
-              const option = document.createElement('option');
-              option.value = org;
-              option.textContent = org;
-              orgSelect.appendChild(option);
-            });
-          }
-        });
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   fetch('/admin/profile/organization/retrieve_organizations')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       const orgSelect = document.getElementById('organization');
+    //       if (data.organizations && Array.isArray(data.organizations)) {
+    //         data.organizations.forEach(org => {
+    //           const option = document.createElement('option');
+    //           option.value = org;
+    //           option.textContent = org;
+    //           orgSelect.appendChild(option);
+    //         });
+    //       }
+    //     });
+    // });
   </script>
 </dialog>

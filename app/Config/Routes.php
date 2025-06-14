@@ -52,7 +52,6 @@ $routes->group('admin', ['filter' => 'role:admin'], function ($routes) {
     $routes->group('users', function ($routes) {
       $routes->get('', 'Users::users');
       $routes->post('create', 'Users::create_user');
-      $routes->post('create_officer', 'Users::create_officer');
       $routes->post('create_admin', 'Users::create_admin');
       $routes->get('retrieve', 'Users::retrieve_users');
       $routes->post('update/(:num)', 'Users::update_users/$1');

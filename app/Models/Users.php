@@ -18,7 +18,8 @@ class Users extends Model
         'middle_name',
         'last_name',
         'image_url',
-        'organization',
+        'role',
+        'organization_id',
         'password',
         'created_at',
         'is_active'

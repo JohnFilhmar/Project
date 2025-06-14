@@ -33,6 +33,7 @@ class Auth extends BaseController
         helper(['form']);
         $userModel = new \App\Models\Users();
         $studentModel = new \App\Models\Students();
+        $organizationModel = new \App\Models\Organizations();
 
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -51,7 +52,7 @@ class Auth extends BaseController
                 'middle_name'  => $user['middle_name'],
                 'last_name'    => $user['last_name'],
                 'image_url'    => $user['image_url'],
-                'organization' => $user['organization'],
+                'organization' => $organizationModel->select('organization_name')->where('organization_id', $user['organization_id'])->first()['organization_name'],
                 'role'         => $user['role'],
                 'isLoggedIn'   => true
             ]);

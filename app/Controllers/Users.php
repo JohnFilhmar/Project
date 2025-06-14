@@ -11,6 +11,20 @@ class Users extends BaseController
     {
         $userModel = new \App\Models\Users();
         $users = $userModel->findAll();
+        // Load Organizations model
+        $organizationModel = new \App\Models\Organizations();
+
+        // Replace organization_id with organization_name for each user
+        foreach ($users as &$user) {
+            if (isset($user['organization_id']) && $user['organization_id']) {
+            $org = $organizationModel->find($user['organization_id']);
+            $user['organization'] = $org ? $org['organization_name'] : null;
+            } else {
+            $user['organization'] = null;
+            }
+            unset($user['organization_id']);
+        }
+        unset($user);
         return view('admin/profile', ['users' => $users]);
     }
 
@@ -30,31 +44,6 @@ class Users extends BaseController
         return view('admin/profile', ['users' => $users]);
     }
 
-    public function create_officer()
-    {
-        helper(['form', 'url']);
-        $studentNumber = $this->request->getPost('student_number');
-        $password      = $this->request->getPost('password');
-        $studentsModel = new \App\Models\Students();
-        $usersModel    = new \App\Models\Users();
-        $student = $studentsModel->where('student_number', $studentNumber)->first();
-        if (! $student) {
-            return redirect()->back()->with('notif-error', 'Student not found.');
-        }
-        $data = [
-            'first_name'     => $student['first_name'],
-            'middle_name'    => $student['middle_name'],
-            'last_name'      => $student['last_name'],
-            'email'          => $student['email'],
-            'image_url'      => $student['image_url'],
-            'organization'   => $student['organization'],
-            'role'           => 'officer',
-            'password'       => password_hash($password, PASSWORD_DEFAULT),
-        ];
-        $usersModel->insert($data);
-        return redirect()->back()->with('notif-success', 'Officer account created successfully.');
-    }
-
     public function add_officer()
     {
         helper(['form', 'url']);
@@ -72,7 +61,7 @@ class Users extends BaseController
             'last_name'      => $student['last_name'],
             'email'          => $student['email'],
             'image_url'      => $student['image_url'],
-            'organization'   => $student['organization_id'] ?? null,
+            'organization_id'   => $student['organization_id'] ?? null,
             'role'           => 'officer',
             'password'       => password_hash($password, PASSWORD_DEFAULT),
             'is_active'      => 1,
@@ -86,13 +75,14 @@ class Users extends BaseController
     {
         helper(['form', 'url']);
         $usersModel = new \App\Models\Users();
+        $organizationModel = new \App\Models\Organizations();
 
         $data = [
             'first_name'   => $this->request->getPost('first_name'),
             'middle_name'  => $this->request->getPost('middle_name'),
             'last_name'    => $this->request->getPost('last_name'),
             'email'        => $this->request->getPost('email'),
-            'organization' => $this->request->getPost('organization'),
+            'organization_id' => $this->request->getPost('organization_id'),
             'role'         => 'admin',
             'is_active'    => 1,
             'created_at'   => date('Y-m-d H:i:s'),

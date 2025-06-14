@@ -25,6 +25,9 @@
       'type' => 'text',
       'name' => 'student_number',
       'id' => 'student_number',
+      'pattern' => '\d{2}-\d{5}',
+      'maxLength' => 8,
+      'placeholder' => 'XX-XXXXX',
       'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
       'required' => 'required'
     ])
@@ -36,8 +39,11 @@
     <?= form_password([
       'name' => 'password',
       'id' => 'password',
+      'minLength' => 6,
+      'maxLength' => 255,
+      'placeholder' => 'Enter your password...',
       'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
-      'required' => 'required'
+      'required' => 'required',
     ])
     ?>
   </div>
