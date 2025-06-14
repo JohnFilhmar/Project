@@ -103,7 +103,6 @@ class Students extends BaseController
     public function create_student()
     {
         $studentsModel = new \App\Models\Students();
-        $organizationsModel = new \App\Models\Organizations();
         $student_number = $this->request->getPost('student_number');
         $first_name = trim($this->request->getPost('first_name'));
         $middle_name = trim($this->request->getPost('middle_name'));
