@@ -51,7 +51,7 @@ class Users extends BaseController
         return view('admin/profile', ['users' => $users]);
     }
 
-    public function create_officer()
+    public function add_officer()
     {
         helper(['form', 'url']);
         $student_number = $this->request->getPost('student_number');
