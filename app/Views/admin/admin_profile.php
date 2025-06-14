@@ -1,24 +1,24 @@
 <div class="self-center bg-white bg-opacity-90 rounded-lg shadow-xl p-8 w-full max-w-md flex flex-col items-center mt-12 md:mt-20">
   <h2 class="text-2xl md:text-3xl font-bold mb-2 text-center"><span class="capitalize"><?= esc(session()->get('role')) ?></span> Profile</h2>
   <div class="relative mb-4">
-    <img id="profileImage" src="<?= esc(session()->get('image_url') ?: '/no-profile.png') ?>" alt="Profile Image" class="w-40 h-40 object-cover rounded-lg border-4 border-green-500 shadow-md transition-all duration-300" />
+    <img id="profileImage" src="<?= esc(session()->get('image_url') ?: '/no-profile.png') ?>" alt="Profile Image" class="self-center justify-self-center w-40 h-40 object-cover rounded-lg border-4 border-green-500 shadow-md transition-all duration-300" />
 
     <?php helper('form'); ?>
     <?= form_open_multipart('/admin/profile/update_user_image', [
       'id' => 'changeImageForm',
-      'class' => 'absolute bottom-2 right-2 flex gap-2 items-center',
+      'class' => 'flex gap-2 items-center mt-2 items-center justify-center',
       'method' => 'post',
       'enctype' => 'multipart/form-data'
     ]) ?>
       <label for="imageInput" class="bg-green-500 hover:bg-green-700 text-white text-xs px-3 py-1 rounded transition cursor-pointer flex items-center gap-1">
-      <i class="fa fa-pencil"></i>Change Image
+      <i class="fa fa-pencil"></i>Change
       <input type="file" id="imageInput" name="profile_image" accept="image/*" class="hidden" accept="image/*" />
       </label>
       <button type="button" id="removeImageBtn" class="bg-red-500 hover:bg-red-700 text-white text-xs px-3 py-1 rounded transition flex items-center gap-1 hidden">
       <i class="fa fa-trash"></i>Remove
       </button>
       <button type="submit" id="updateProfileBtn" class="bg-blue-500 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded transition flex items-center gap-1 hidden">
-      <i class="fa fa-upload"></i>Update Profile
+      <i class="fa fa-upload"></i>Update
       </button>
     <?= form_close() ?>
 
