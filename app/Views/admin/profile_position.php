@@ -1,14 +1,5 @@
-<p class="text-2xl md:text-3xl lg:text-4xl font-extrabold mt-8 md:mt-9 lg:mt-10 mb-5">Positions Lists Per Organization</p>
-<div class="self-justify-end flex justify-between items-center gap-2 self-end">
-  <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out"
-    onclick="document.getElementById('addPositionForm').showModal();">
-    <p>Add New Position</p>
-  </button>
-</div>
-<?php
-helper('form');
+<?php 
 
-// Example organization list based on actual organization names in the database
 $orgOptions = ['' => 'Select Organization'];
 if (!empty($organizationPositions)) {
   foreach ($organizationPositions as $orgName => $positions) {
@@ -18,6 +9,17 @@ if (!empty($organizationPositions)) {
 
 $selectedOrgName = $_GET['organization'] ?? '';
 $positionsToShow = $organizationPositions[$selectedOrgName] ?? [];
+
+?>
+<p class="text-2xl md:text-3xl lg:text-4xl font-extrabold mt-8 md:mt-9 lg:mt-10 mb-5">Positions Lists Per Organization</p>
+<div class="self-justify-end flex justify-between items-center gap-2 self-end">
+  <button class="bg-green-500 hover:bg-green-700 disabled:bg-green-500 disabled:text-green-300 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out"
+    onclick="document.getElementById('addPositionForm').showModal();" <?= empty($selectedOrgName) ? 'disabled' : '' ?>>
+    <p>Add New Position</p>
+  </button>
+</div>
+<?php
+helper('form');
 
 echo form_open('', ['method' => 'get', 'class' => 'self-start']);
 echo form_label('Organization:', 'organization', ['class' => 'font-semibold mr-2']);
