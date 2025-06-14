@@ -10,7 +10,9 @@
       'type' => 'text',
       'id' => 'organization_name',
       'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
-      'required' => 'required'
+      'required' => 'required',
+      'pattern' => '^[A-Za-z0-9\s\-\'&.,]+$',
+      'title' => 'Only letters, numbers, spaces, hyphens, apostrophes, ampersands, commas, and periods are allowed.'
     ]) ?>
   </div>
   <div>
@@ -25,6 +27,8 @@
           'class' => 'flex-1 border-none outline-none',
           'placeholder' => 'Add position and press Enter',
           'autocomplete' => 'off',
+          'pattern' => '^[A-Za-z0-9\s\-\'&.,]+$',
+          'title' => 'Only letters, numbers, spaces, hyphens, apostrophes, ampersands, commas, and periods are allowed.'
         ]) ?>
         <button type="button" id="add-position-btn" class="ml-2 bg-green-600 text-white px-2 rounded">Add</button>
       </div>
