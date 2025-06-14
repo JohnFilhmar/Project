@@ -7,8 +7,10 @@
 
   <button
     onclick="openEditCampaign(this)"
-    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded drop-shadow-lg transition duration-300 ease-in-out mb-6 animate-pulse"
-    type="button">
+    class="drop-shadow-lg bg-green-500 hover:bg-green-700 text-white disabled:bg-green-600 disabled:text-gray-200 disabled:shadow-inner font-bold py-2 px-4 rounded transition duration-300 ease-in-out mb-6"
+    type="button"
+    id="addNewCampaignBtn" 
+    >
     Add New Campaign
   </button>
   <!-- MODAL FOR ADDING NEW CAMPAIGN -->

@@ -137,4 +137,15 @@ class Campaigns extends BaseController
         session()->setFlashdata('notif-success', 'Campaign updated successfully.');
         return redirect()->to('/campaign_lists');
     }
+
+    public function retrieve_partylist()
+    {
+        $campaignModel = new \App\Models\Campaigns();
+        // Get unique partylists from campaigns table
+        $partylists = $campaignModel->distinct()->select('partylist')->where('partylist IS NOT NULL')->where('partylist !=', '')->findAll();
+        $partylistNames = array_map(function($row) {
+            return $row['partylist'];
+        }, $partylists);
+        return $this->response->setJSON(['partylists' => $partylistNames]);
+    }
 }

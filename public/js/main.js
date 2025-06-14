@@ -331,7 +331,9 @@ function fillElectionForm(data) {
   document.getElementById("start_time").value = data.start_time || "";
   document.getElementById("end_date").value = data.end_date || "";
   document.getElementById("end_time").value = data.end_time || "";
-  document.getElementById("submitElectionButton").textContent = data.title ? `Update ${data.title} Election Date and Time` : "Set Election Date and Time"
+  document.getElementById("submitElectionButton").textContent = data.title
+    ? `Update ${data.title} Election Date and Time`
+    : "Set Election Date and Time";
   electionForm.action = data.election_id
     ? `/admin/profile/election/update/${data.election_id}`
     : `/admin/profile/election/create`;
@@ -388,36 +390,68 @@ async function checkElectionSchedule(orgId) {
   }
 }
 
-// Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  loadOrganizations();
-
-  organizationDropdown.addEventListener("change", async (e) => {
-    const orgId = e.target.value;
-    if (orgId) {
-      await checkElectionSchedule(orgId);
-    } else {
-      fillElectionForm({});
-    }
+if (organizationDropdown) {
+  document.addEventListener("DOMContentLoaded", () => {
+    loadOrganizations();
+    organizationDropdown.addEventListener("change", async (e) => {
+      const orgId = e.target.value;
+      if (orgId) {
+        await checkElectionSchedule(orgId);
+      } else {
+        fillElectionForm({});
+      }
+    });
   });
-});
+}
 
 // Ballot modal toggle
 export function toggleBallotModal(force) {
   const ballotModal = document.getElementById("ballotVoteModal");
   if (!ballotModal) return;
-  if (force === 'open') {
+  if (force === "open") {
     ballotModal.showModal();
     return;
   }
-  if (force === 'close') {
+  if (force === "close") {
     ballotModal.close();
     return;
   }
-  if (typeof ballotModal.open === 'boolean' && ballotModal.open) {
+  if (typeof ballotModal.open === "boolean" && ballotModal.open) {
     ballotModal.close();
   } else {
     ballotModal.showModal();
   }
 }
 window.toggleBallotModal = toggleBallotModal;
+
+// Partylist dropdown population and button enable/disable
+function getPartylist() {
+  fetch("/campaigns/retrieve_partylist")
+    .then((response) => response.json())
+    .then((data) => {
+      const partylist = document.getElementById("partylist");
+      const addNewCampaignBtn = document.getElementById("addNewCampaignBtn");
+      if (partylist) {
+        // Clear previous options except the first
+        partylist.options.length = 1;
+        if (data.partylists && Array.isArray(data.partylists)) {
+          if (addNewCampaignBtn) {
+            addNewCampaignBtn.disabled = data.partylists.length < 1;
+            addNewCampaignBtn.textContent = addNewCampaignBtn.disabled ? "There are currently no partylists" : "Add new campaign"
+          }
+          data.partylists.forEach(function (pl) {
+            const option = document.createElement("option");
+            option.value = pl;
+            option.textContent = pl;
+            partylist.appendChild(option);
+          });
+        } else if (addNewCampaignBtn) {
+          addNewCampaignBtn.disabled = true;
+        }
+      }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  getPartylist();
+});
