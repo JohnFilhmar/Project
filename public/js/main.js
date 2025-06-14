@@ -113,7 +113,7 @@ export function openEditProfile(button) {
   document.getElementById("course").value = button.dataset.course || "";
   document.getElementById("year_level").value = button.dataset.year_level || "";
   document.getElementById("email").value = button.dataset.email || "";
-  document.getElementById("organization").value =
+  document.getElementById("organization_id").value =
     button.dataset.organization || "";
   title.textContent = button.dataset.form_title || "Add Student Profile";
   toggleImageInputs();

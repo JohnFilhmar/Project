@@ -14,7 +14,9 @@
       'id' => 'student_number',
       'name' => 'student_number',
       'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
-      'required' => 'required'
+      'required' => 'required',
+      'pattern' => '\d{2}-\d{5}',
+      'title' => 'Format: nn-nnnnn (e.g., 12-34567)'
     ]) ?>
   </div>
 
@@ -68,12 +70,16 @@
 
   <div>
     <?= form_label('Year Level', 'year_level', ['class' => 'block text-sm font-medium']) ?>
-    <?= form_input('year_level', '', [
+    <?= form_dropdown('year_level', [
+      '' => 'Select Year Level',
+      '1' => '1st Year',
+      '2' => '2nd Year',
+      '3' => '3rd Year',
+      '4' => '4th Year'
+    ], '', [
       'id' => 'year_level',
       'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105',
-      'required' => 'required',
-      'type' => 'number',
-      'min' => '1'
+      'required' => 'required'
     ]) ?>
   </div>
 
@@ -87,13 +93,11 @@
     ]) ?>
   </div>
 
-  <div class="md:col-span-2">
-    <?= form_label('Organization', 'organization', ['class' => 'block text-sm font-medium']) ?>
-    <?= form_input('organization', '', [
-      'id' => 'organization',
-      'name' => 'organization',
-      'class' => 'mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105'
-    ]) ?>
+  <div class="md:col-span-2" id="organizationDropdown">
+    <label for="organization_id" class="font-semibold mb-1 block">Organization:</label>
+    <select id="organization_id" name="organization_id" class="form-control px-4 py-2 rounded-md w-full border" required>
+      <option value="">-- Select Organization --</option>
+    </select>
   </div>
 
   <div class="md:col-span-2 flex items-center gap-2">

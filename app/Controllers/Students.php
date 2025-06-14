@@ -137,12 +137,7 @@ class Students extends BaseController
             $imageFile->move(FCPATH . 'students', $originalName);
             $image_url = '/students/' . $originalName;
         }
-        $organization_name = $this->request->getPost('organization');
-        $org = $organizationsModel->select('organization_id')->where('organization_name', $organization_name)->first();
-        if (!$org || !isset($org['organization_id'])) {
-            session()->setFlashdata('notif-error', 'Invalid organization.');
-            return redirect()->to('/students/student_lists');
-        }
+        $organization_id = $this->request->getPost('organization_id');
         $data = [
             'student_number' => $student_number,
             'first_name' => $first_name,
@@ -154,7 +149,7 @@ class Students extends BaseController
             'email' => $this->request->getPost('email'),
             'phone_number' => $phone_number,
             'image_url' => $image_url,
-            'organization_id' => $org['organization_id'],
+            'organization_id' => $organization_id,
             'password' => $password,
         ];
         if ($studentsModel->insert($data)) {
