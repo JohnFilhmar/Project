@@ -77,6 +77,8 @@ $routes->get('retrieve_positions/(:segment)', 'Organizations::retrieve_positions
 // OFFICER ROUTES
 $routes->group('officer', ['filter' => 'role:officer'], function ($routes) {
   $routes->get('/', 'Campaigns::index');
+  $routes->post('update_profile_image', 'Officer::update_profile_image');
+  $routes->post('update_profile', 'Officer::update_profile');
 
   $routes->get('profile', 'Officer::profile');
 
