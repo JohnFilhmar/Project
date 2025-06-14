@@ -7,24 +7,30 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Users extends BaseController
 {
-    public function users()
+    /**
+     * Helper to map organization_id to organization name and remove organization_id from each user
+     */
+    private function mapOrganizationNames(array $users): array
     {
-        $userModel = new \App\Models\Users();
-        $users = $userModel->findAll();
-        // Load Organizations model
         $organizationModel = new \App\Models\Organizations();
-
-        // Replace organization_id with organization_name for each user
         foreach ($users as &$user) {
             if (isset($user['organization_id']) && $user['organization_id']) {
-            $org = $organizationModel->find($user['organization_id']);
-            $user['organization'] = $org ? $org['organization_name'] : null;
+                $org = $organizationModel->find($user['organization_id']);
+                $user['organization'] = $org ? $org['organization_name'] : null;
             } else {
-            $user['organization'] = null;
+                $user['organization'] = null;
             }
             unset($user['organization_id']);
         }
         unset($user);
+        return $users;
+    }
+
+    public function users()
+    {
+        $userModel = new \App\Models\Users();
+        $users = $userModel->findAll();
+        $users = $this->mapOrganizationNames($users);
         return view('admin/profile', ['users' => $users]);
     }
 
@@ -41,10 +47,11 @@ class Users extends BaseController
             session()->setFlashdata('notif-error', 'Failed to create user: ' . implode(', ', $userModel->errors()));
         }
         $users = $userModel->findAll();
+        $users = $this->mapOrganizationNames($users);
         return view('admin/profile', ['users' => $users]);
     }
 
-    public function add_officer()
+    public function create_officer()
     {
         helper(['form', 'url']);
         $student_number = $this->request->getPost('student_number');
@@ -110,11 +117,12 @@ class Users extends BaseController
             return redirect()->back()->with('notif-error', 'Failed to create admin: ' . implode(', ', $usersModel->errors()));
         }
     }
-    
+
     public function retrieve_users()
     {
         $userModel = new \App\Models\Users();
         $users = $userModel->findAll();
+        $users = $this->mapOrganizationNames($users);
         return $this->response->setJSON(['users' => $users]);
     }
 
@@ -134,8 +142,8 @@ class Users extends BaseController
         } else {
             session()->setFlashdata('notif-error', 'Failed to update user: ' . implode(', ', $userModel->errors()));
         }
-
         $users = $userModel->findAll();
+        $users = $this->mapOrganizationNames($users);
         return view('admin/profile', ['users' => $users]);
     }
 
@@ -147,8 +155,8 @@ class Users extends BaseController
         } else {
             session()->setFlashdata('notif-error', 'Failed to deactivate user: ' . implode(', ', $userModel->errors()));
         }
-
         $users = $userModel->findAll();
+        $users = $this->mapOrganizationNames($users);
         return view('admin/profile', ['users' => $users]);
     }
 
@@ -160,8 +168,8 @@ class Users extends BaseController
         } else {
             session()->setFlashdata('notif-error', 'Failed to activate user: ' . implode(', ', $userModel->errors()));
         }
-
         $users = $userModel->findAll();
+        $users = $this->mapOrganizationNames($users);
         return view('admin/profile', ['users' => $users]);
     }
 }
