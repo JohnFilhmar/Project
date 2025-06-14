@@ -3,7 +3,7 @@
 
   helper('form');
 
-  echo form_open('admin/add_officer', ['id' => 'addOfficerForm', 'class' => 'grid grid-cols-1 md:grid-cols-2 gap-2 space-y-4 p-6']);
+  echo form_open('admin/profile/users/add_officer', ['id' => 'addOfficerForm', 'class' => 'grid grid-cols-1 md:grid-cols-2 gap-2 space-y-4 p-6']);
 
   echo form_label('Add New Officer', 'title', ['class' => 'md:col-span-2 text-2xl font-bold text-center mb-4 border-b-2 border-green-500 w-full']);
   echo form_input([
