@@ -20,6 +20,7 @@
           'id' => 'email',
           'name' => 'email',
           'required' => true,
+          'maxlength' => 255,
           'autocomplete' => 'email',
           'class' => 'w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition',
           'placeholder' => 'Enter your email'
@@ -34,6 +35,8 @@
             'name' => 'password',
             'required' => true,
             'autocomplete' => 'current-password',
+            'minLength' => 6,
+            'maxlength' => 255,
             'class' => 'w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition pr-10',
             'placeholder' => 'Enter your password'
           ]) ?>
