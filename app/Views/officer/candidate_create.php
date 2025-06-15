@@ -24,7 +24,7 @@
   <div>
     <?= form_label('Position', 'position-dropdown', ['class' => 'block text-sm font-medium']) ?>
     <select
-      name="position-dropdown"
+      name="position"
       id="position-dropdown"
       class="mt-1 block w-full border border-gray-300 rounded px-3 py-2 hover:scale-105"
       required
