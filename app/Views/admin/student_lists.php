@@ -88,7 +88,7 @@
               <?php if (!empty($student['is_candidate'])): ?>
                 <button class="bg-gray-300 text-gray-500 px-3 py-1 rounded text-xs font-bold mr-2 cursor-not-allowed" disabled>Already a Candidate</button>
               <?php else: ?>
-                <button class="bg-green-500 hover:bg-green-700 text-white px-3 py-1 rounded text-xs font-bold mr-2" onclick="document.getElementById('applyCandidateModal').showModal();">
+                <button class="bg-green-500 hover:bg-green-700 text-white px-3 py-1 rounded text-xs font-bold mr-2" onclick="openApplyCandidateModal()">
                   Apply as Candidate
                 </button>
                 <?= view('officer/candidate_create', ['student_id' => $student['student_id']]) ?>

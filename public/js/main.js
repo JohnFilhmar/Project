@@ -437,7 +437,9 @@ function getPartylist() {
         if (data.partylists && Array.isArray(data.partylists)) {
           if (addNewCampaignBtn) {
             addNewCampaignBtn.disabled = data.partylists.length < 1;
-            addNewCampaignBtn.textContent = addNewCampaignBtn.disabled ? "There are currently no partylists" : "Add new campaign"
+            addNewCampaignBtn.textContent = addNewCampaignBtn.disabled
+              ? "There are currently no partylists"
+              : "Add new campaign";
           }
           data.partylists.forEach(function (pl) {
             const option = document.createElement("option");
@@ -455,3 +457,32 @@ function getPartylist() {
 document.addEventListener("DOMContentLoaded", function () {
   getPartylist();
 });
+
+function populatePositionsDropdown() {
+  const select = document.getElementById("position-dropdown");
+  if (!select) return;
+  select.options.length = 1;
+  const org = select.getAttribute("data-organization");
+  if (org) {
+    fetch(`/retrieve_positions/${encodeURIComponent(org)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.positions) {
+          Object.entries(data.positions).forEach(function ([pos, val]) {
+            if (val === 1 || val === true) {
+              const opt = document.createElement("option");
+              opt.value = pos;
+              opt.textContent = pos;
+              select.appendChild(opt);
+            }
+          });
+        }
+      });
+  }
+}
+
+function openApplyCandidateModal() {
+  document.getElementById("applyCandidateModal").showModal();
+  populatePositionsDropdown();
+}
+window.openApplyCandidateModal = openApplyCandidateModal;
