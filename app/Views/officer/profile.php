@@ -7,7 +7,7 @@
     <img id="profileImage" src="<?= esc(session()->get('image_url') ?: '/no-profile.png') ?>" alt="Profile Image" class="self-center justify-self-center w-40 h-40 object-cover rounded-lg border-4 border-green-500 shadow-md transition-all duration-300" />
 
     <?php helper('form'); ?>
-    <?= form_open_multipart('/admin/profile/update_user_image', [
+    <?= form_open_multipart('/admin/profile/update_profile_image', [
       'id' => 'changeImageForm',
       'class' => 'flex gap-2 items-center mt-2 items-center justify-center',
       'method' => 'post',
